@@ -1,0 +1,11 @@
+# Perfil "postgres": use com o docker-compose.yml deste projeto
+#   docker compose up -d
+#   mvn spring-boot:run -Dspring-boot.run.profiles=postgres
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/tarefas}
+    username: ${DB_USER:tarefas}
+    password: ${DB_PASSWORD:tarefas}
+  h2:
+    console:
+      enabled: false
