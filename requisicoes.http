@@ -1,0 +1,35 @@
+### Exemplos de requisições (REST Client do VS Code ou HTTP Client do IntelliJ)
+@base = http://localhost:8080/api/tarefas
+
+### Criar tarefa
+POST {{base}}
+Content-Type: application/json
+
+{ "titulo": "Escrever casos de teste do login", "descricao": "Cenários positivos e negativos", "prioridade": "ALTA", "dataLimite": "2030-12-31" }
+
+### Listar (paginado, com filtros opcionais)
+GET {{base}}?status=PENDENTE&prioridade=ALTA&page=0&size=10
+
+### Buscar por id
+GET {{base}}/1
+
+### Atualizar
+PUT {{base}}/1
+Content-Type: application/json
+
+{ "titulo": "Escrever e revisar casos de teste do login", "prioridade": "MEDIA" }
+
+### Mudar status
+PATCH {{base}}/1/status
+Content-Type: application/json
+
+{ "status": "CONCLUIDA" }
+
+### Tarefas atrasadas
+GET {{base}}/atrasadas
+
+### Resumo por status
+GET {{base}}/resumo
+
+### Excluir
+DELETE {{base}}/1
